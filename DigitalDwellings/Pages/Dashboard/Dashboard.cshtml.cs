@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace RuneBox.Pages.Home
 {
-    //[Authorize(Policy = "Admin")]
+    [Authorize(Policy = "Admin")]
     public class DashboardModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
