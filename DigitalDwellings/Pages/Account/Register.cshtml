@@ -1,0 +1,60 @@
+﻿@page
+@model DigitalDwellings.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_RegisterLayout";
+}
+<body id="index-html" class="landingBody">
+@*    <div id="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="~/videos/placeholder_video.mp4" type="video/mp4">
+        </video>
+    </div>*@
+    <div id="body-content" class="text-center">
+        <div id="item-center">
+            <img src="~/images/landing_logo.png" alt="Application Logo" id="login-logo" class="mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">Digital Dwellings Signup</h1>
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-signup">
+                <h4>Create a new account.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="Input.FirstName" class="form-control" placeholder="First Name"/>                  
+                </div>
+                <div class="form-group">
+                    <input asp-for="Input.LastName" class="form-control" placeholder="Last Name" />
+                </div>
+                <div class="form-group">
+                    <input asp-for="Input.Email" class="form-control" placeholder="Email Address" />
+                </div>
+                <div class="form-group">
+                    <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                </div>
+                <div class="form-group">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password"/>
+                </div>
+                <button type="submit" class="btn btn-success">Register</button>
+                <a class="btn btn-primary" asp-area="" asp-page="/Account/Login" asp-route-returnUrl="@Model.ReturnUrl">Return To Login</a>
+            </form>
+        </div>
+        <div id="footer-container">
+            <h1 id="icon-text" class="h5 mb-3 font-weight-normal">Follow us</h1>
+            <div id="icon-container">
+                <img src="~/images/github_icon.png" alt="github icon" id="social-icon">
+                <a href="https://discord.gg/aPDRQP6Buf" target="_blank"><img src="~/images/discord_icon.png" alt="discord icon" id="social-icon"></a>
+            </div>
+            <footer>
+                <ul id="social-links" class="list-inline">
+                    <li class="list-inline-item"><a href="_INSERT_TWITTER_URL_HERE_">Twitter</a></li>
+                    <li class="list-inline-item"><a href="_INSERT_YOUTUBE_URL_HERE_">YouTube</a></li>
+                    <li class="list-inline-item"><a href="_INSERT_INSTAGRAM_URL_HERE_">Instagram</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+</body>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

@@ -1,0 +1,26 @@
+﻿@page
+@model DigitalDwellings.Pages.Admin.UsersModel
+@{
+}
+<div id="page-container">
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr><th>Username</th><th>Normalized</th><th>Claims</th><th>Roles</th><th /></tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.NormalizedUserName</td>
+                    <td>
+                        <a asp-page="../Admin/UserClaims/Claims" asp-route-id="@user.Id">Manage Claims</a>
+                    </td>
+                    <td>
+                        <a asp-page="../Admin/UserRoles/Roles" asp-route-id="@user.Id">Manage Roles</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

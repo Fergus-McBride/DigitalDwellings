@@ -1,0 +1,62 @@
+﻿@page
+@model DigitalDwellings.Pages.Account.LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "_LoginLayout";
+}
+<body id="index-html" class="landingBody">
+@*    <div id="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="~/videos/placeholder_video.mp4" type="video/mp4">
+        </video>
+    </div>*@
+    <div id="body-content" class="text-center">
+        <div id="item-center">
+            <form id="account" method="post"  class="form-signin">
+                <img src="~/images/landing_logo.png" alt="Application Logo" id="login-logo" class="mb-4">
+                <h1 class="h3 mb-3 font-weight-normal">Digital Dwellings Login</h1>
+                <div asp-validation-summary="All" class="text-danger"></div>
+                    <input asp-for="Input.Email" type ="email" placeholder="Email Address.."class="form-control input-resize" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <input asp-for="Input.Password" type="password" placeholder="Password.." class="form-control input-resize" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Log in</button>                  
+                   <a id="register" class="btn btn-primary" asp-page="/Account/Register" asp-route-returnUrl="@Model.ReturnUrl">Sign up</a>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <div id="footer-container">
+            <h1 id="icon-text" class="h5 mb-3 font-weight-normal">Follow us</h1>
+            <div id="icon-container">
+                <img src="~/images/github_icon.png" alt="github icon" id="social-icon">
+                <a href="https://discord.gg/aPDRQP6Buf" target="_blank"><img src="~/images/discord_icon.png" alt="discord icon" id="social-icon"></a>
+            </div>
+            <footer>
+                <ul id="social-links" class="list-inline">
+                    <li class="list-inline-item"><a href="_INSERT_TWITTER_URL_HERE_">Twitter</a></li>
+                    <li class="list-inline-item"><a href="_INSERT_YOUTUBE_URL_HERE_">YouTube</a></li>
+                    <li class="list-inline-item"><a href="_INSERT_INSTAGRAM_URL_HERE_">Instagram</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+</body>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }

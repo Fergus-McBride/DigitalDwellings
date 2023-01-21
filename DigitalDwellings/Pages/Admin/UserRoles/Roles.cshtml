@@ -1,0 +1,89 @@
+﻿@page "{id?}"
+@model DigitalDwellings.Pages.UserRoles.RolesModel
+@{
+    int FormId = 0;
+}
+@using RuneBox.Data
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="page-container">
+    <div asp-validation-summary="All" class="text-danger m-2"></div>
+
+    <div class="current-roles-container">
+        <h1>List of Roles For @{ }</h1>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <td>Role Name</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (string item in Model.Roles)
+                {
+                    FormId++;
+
+                    <tr>
+                        <td>@item</td>
+                        <td>
+                            <form method="post" id=@("editForm"+FormId)>
+                                <input type="hidden" name="roleName" value="@item" />
+                                <input class="form-control" name="value" value="@item" />
+                            </form>
+                        </td>
+                        <td>
+                            <button type="submit" form=@("editForm"+FormId)
+                                    class="btn btn-sm btn-danger"
+                                    asp-page-handler="DeleteRole">
+                                Remove
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="add-role-container">
+        <h1>Add New Role</h1>
+        <form method="post" id="addForm">
+            <div class="row">
+                <div class="col">
+                    <select class="form-control" name="roleName">
+                        @foreach (var role in ApplicationRoleTypes.AppRoleTypes)
+                        {
+                            <option value="@role">
+                                @role
+                            </option>
+                        }
+                    </select>
+                </div>
+                <div class="col">
+                    <button asp-page-handler="AddRole" type="submit"
+                            class="btn btn-sm btn-success">
+                        Add
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    @*<h1>Create New Role</h1>
+    <form method="post" id="addForm">
+        <div class="row">
+            <div class="col">
+                <select class="form-control" name="roleName">
+                    @foreach (var role in ApplicationRoleTypes.AppRoleTypes)
+                    {
+                        <option name="roleName" value="@role">
+                            @role
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="col">
+                <button asp-page-handler="CreateRole" type="submit"
+                        class="btn btn-sm btn-success">
+                    Add
+                </button>
+            </div>
+        </div>
+    </form>*@
+</div>

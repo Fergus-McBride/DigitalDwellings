@@ -25,6 +25,20 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
+                        <form id="logoutForm" class="form-link" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })">
+                        <li class="nav-item">
+                            <button id="logout" type="submit" class="">
+                                <i class="bx bx-log-out features-item-icon"></i>
+                                <span class="features-item-text">Logout</span>
+                            </button>
+                        </li>
+                        </form>
+                        <li class="nav-item">
+                            <a class="menu-link" asp-area="" asp-page="/Admin/Users">
+                                <i class="bx bxs-data features-item-icon top-level"></i>
+                                <span class="features-item-text top-level">Admin</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
